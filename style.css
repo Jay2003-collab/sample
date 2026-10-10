@@ -1,0 +1,348 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at 20% 20%, #9c4dcc, transparent 35%),
+        radial-gradient(circle at 80% 80%, #fa74c8, transparent 35%),
+        linear-gradient(135deg, #210b3b, #54166e, #a53691);
+    overflow-x: hidden;
+}
+
+.screen {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    width: 100%;
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Welcome screen */
+
+.envelope {
+    font-size: 100px;
+    animation: float 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px #ff9cde);
+}
+
+.small-text {
+    margin-top: 20px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #ffd6f1;
+}
+
+#welcome h1 {
+    margin: 18px 0;
+    font-size: clamp(35px, 8vw, 55px);
+    color: #ffe0f5;
+    text-shadow: 0 0 25px #ff76cb;
+}
+
+.intro-text {
+    margin-bottom: 28px;
+    color: #ffe8f7;
+    line-height: 1.8;
+}
+
+button {
+    padding: 14px 25px;
+    margin: 8px;
+    max-width: 100%;
+    border: 1px solid rgba(255,255,255,.6);
+    border-radius: 40px;
+    background: linear-gradient(135deg, #ffd6f0, #e9a0ff);
+    color: #65185e;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 25px #16062455;
+    transition: .3s ease;
+}
+
+#openBtn {
+    font-size: 18px;
+    padding: 17px 40px;
+    animation: pulse 1.5s infinite;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 0 25px #ff9cde;
+}
+
+.hint {
+    margin-top: 20px;
+    color: #ffd9f1;
+    font-size: 13px;
+}
+
+/* Birthday celebration */
+
+.badge {
+    padding: 10px 15px;
+    border: 1px solid #ffc6ed;
+    border-radius: 30px;
+    background: #ffffff16;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.birthday-title {
+    margin-top: 25px;
+    font-size: clamp(36px, 8vw, 58px);
+    color: #ffe2f5;
+    text-shadow: 0 0 12px #ff8bda, 0 0 35px #d56dff;
+    animation: glow 2s infinite alternate;
+}
+
+.name {
+    margin-top: 10px;
+    font-size: clamp(23px, 5vw, 34px);
+    color: #ffb8e6;
+}
+
+/* 3D cake */
+
+.cake-area {
+    height: 210px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 700px;
+}
+
+.cake {
+    position: relative;
+    width: 190px;
+    height: 150px;
+    transform-style: preserve-3d;
+    animation: cakeFloat 3s ease-in-out infinite;
+}
+
+.plate {
+    position: absolute;
+    top: 125px;
+    left: -12px;
+    width: 214px;
+    height: 25px;
+    border-radius: 50%;
+    background: linear-gradient(#fff5ff, #d8a1ff);
+    box-shadow: 0 12px 25px #18032266;
+}
+
+.layer {
+    position: absolute;
+    left: 10px;
+    width: 170px;
+}
+
+.top-layer {
+    top: 35px;
+    height: 43px;
+    z-index: 2;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fff0fa, #ff8bcf);
+    border: 3px solid #ffe0f3;
+}
+
+.middle-layer {
+    top: 55px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 0 0 12px 12px;
+    color: white;
+    font-size: 24px;
+    background: linear-gradient(90deg, #9f3cce, #ee83c7, #9f3cce);
+}
+
+.bottom-layer {
+    top: 88px;
+    left: 0;
+    width: 190px;
+    height: 45px;
+    border-radius: 0 0 50% 50%;
+    background: linear-gradient(90deg, #c453da, #ffb2df, #b14dd1);
+    box-shadow: inset 0 -8px #8b37a944;
+}
+
+.candle {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    width: 10px;
+    height: 36px;
+    border-radius: 3px;
+    background: repeating-linear-gradient(
+        135deg, white 0 5px, #ff5cbb 5px 10px
+    );
+}
+
+.candle:nth-child(1) { left: 48px; }
+.candle:nth-child(2) { left: 90px; top: -8px; }
+.candle:nth-child(3) { left: 132px; }
+
+.candle i {
+    position: absolute;
+    top: -23px;
+    left: -3px;
+    width: 16px;
+    height: 23px;
+    border-radius: 50% 50% 45% 45%;
+    background: linear-gradient(#fffbb4, #ffb22d, #ff5b35);
+    box-shadow: 0 0 18px #ffc342;
+    animation: flicker .4s infinite alternate;
+}
+
+/* Birthday text */
+
+.wish {
+    max-width: 440px;
+    line-height: 1.9;
+    color: #fff0fb;
+    font-size: 15px;
+}
+
+.love {
+    margin: 18px 0;
+    color: #ffd0ef;
+}
+
+.gift-message {
+    width: min(100%, 430px);
+    margin-top: 20px;
+    padding: 24px 20px;
+    border: 1px solid #ffc9ed88;
+    border-radius: 25px;
+    background: #ffffff16;
+    box-shadow: 0 0 30px #f66fc322;
+    animation: reveal .7s ease;
+}
+
+.gift-icon {
+    font-size: 55px;
+    animation: float 1.5s infinite;
+}
+
+.gift-message h2 {
+    margin: 12px 0;
+    color: #ffd4f1;
+}
+
+.gift-message p {
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.signature {
+    margin-top: 15px;
+    color: #ffb8e6;
+    font-weight: bold;
+}
+
+.footer {
+    margin-top: 28px;
+    color: #ffd9f0;
+    font-size: 12px;
+}
+
+/* Background hearts */
+
+.heart {
+    position: fixed;
+    bottom: -50px;
+    z-index: 1;
+    pointer-events: none;
+    animation: rise linear forwards;
+}
+
+#confetti {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Animation */
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-14px) rotate(3deg); }
+}
+
+@keyframes cakeFloat {
+    0%, 100% {
+        transform: rotateX(-5deg) rotateY(-10deg) translateY(0);
+    }
+    50% {
+        transform: rotateX(3deg) rotateY(10deg) translateY(-9px);
+    }
+}
+
+@keyframes flicker {
+    from { transform: rotate(-7deg) scale(1); }
+    to { transform: rotate(7deg) scale(1.1, .9); }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ff8bda; }
+    to { text-shadow: 0 0 30px #ff8bda, 0 0 45px #c77bff; }
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 10px #ff9cde; }
+    50% { box-shadow: 0 0 30px #ff9cde; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes reveal {
+    from { opacity: 0; transform: translateY(20px) scale(.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .cake-area {
+        transform: scale(.9);
+    }
+
+    .wish {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 13px;
+    }
+}
